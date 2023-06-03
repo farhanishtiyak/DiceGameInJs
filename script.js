@@ -65,12 +65,13 @@ btnRoll.addEventListener('click', function () {
 
 btnHold.addEventListener('click', function () {
   if (playing) {
-    playing = false;
-
     totalScors[activePlayer] += currentScore;
     document.querySelector(`#score--${activePlayer}`).textContent =
       totalScors[activePlayer];
+    diceImg.classList.add('hidden');
     if (totalScors[activePlayer] >= 100) {
+      playing = false;
+
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
